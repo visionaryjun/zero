@@ -369,16 +369,35 @@ h4,
     background: rgba(17, 24, 39, 0.8);
 }
 
-.trust-icon {
-    font-size: 4rem;
-    margin-bottom: 30px;
-    display: block;
-    filter: drop-shadow(0 4px 12px rgba(79, 70, 229, 0.3));
+.trust-icon-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(79, 70, 229, 0.08);
+    border-radius: 20px;
+    border: 1px solid rgba(79, 70, 229, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trust-card:hover .trust-icon-container {
+    background: rgba(79, 70, 229, 0.15);
+    border-color: rgba(79, 70, 229, 0.3);
+    box-shadow: 0 0 30px rgba(79, 70, 229, 0.25);
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.trust-icon-svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--primary);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.trust-card:hover .trust-icon {
-    transform: scale(1.15) rotate(5deg);
+.trust-card:hover .trust-icon-svg {
+    transform: scale(1.15);
 }
 
 .trust-card h3 {
