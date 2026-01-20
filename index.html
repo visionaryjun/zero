@@ -40,18 +40,17 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="container grid">
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="container hero-container">
             <div class="hero-content">
-                <h1 class="fade-in" data-i18n="hero_title">Sovereign Anonymity with <span
-                        class="gradient-text">Zero</span></h1>
-                <p class="fade-in" data-i18n="hero_subtitle">기존의 경계를 넘어선 프라이버시. Cosmos SDK와 고성능 Rust 암호화 코어가 만나 탄생한 차세대
-                    소버린 롤업 메신저.</p>
-                <div class="hero-btns fade-in">
-                    <a href="whitepaper.html" class="btn-primary" target="_blank" data-i18n="hero_btn_whitepaper">화이트페이퍼
-                        읽기</a>
-                    <a href="https://github.com" class="btn-secondary" target="_blank"
-                        data-i18n="hero_btn_github">GitHub 탐색</a>
+                <h1 data-i18n="hero_title">Conversations that only you see.</h1>
+                <p data-i18n="hero_subtitle">No central servers, no prying eyes. Not even we can see your messages. Zero
+                    ensures absolute anonymity using the world's most advanced privacy technology.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn-primary" data-i18n="nav_get_started">Get Started</a>
+                    <a href="whitepaper.html" target="_blank" class="btn-secondary" data-i18n="hero_btn_whitepaper">Read
+                        Whitepaper</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -60,48 +59,65 @@
         </div>
     </header>
 
-    <section id="features" class="features section">
+    <!-- Trust Section (New) -->
+    <section class="trust-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="gradient-text" data-i18n="features_title">핵심 기술 (Core Tech)</h2>
-                <p data-i18n="features_subtitle">내용, 수신자, 발신자, 검색의 4중 은닉을 통한 완벽한 익명성 보장</p>
+            <h2 class="section-title" data-i18n="trust_title">Unbreakable Trust</h2>
+            <p class="section-subtitle" data-i18n="trust_subtitle">Zero is designed to be mathematically private. We
+                removed the human factor so your data stays yours.</p>
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <div class="trust-icon">🛡️</div>
+                    <h3 data-i18n="trust_server_title">Zero Server Knowledge</h3>
+                    <p data-i18n="trust_server_desc">Our servers only see encrypted noise. Your identity and message
+                        content are invisible to the network operator.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon">🔐</div>
+                    <h3 data-i18n="trust_keys_title">Sovereign Keys</h3>
+                    <p data-i18n="trust_keys_desc">You own the keys. We can't recover your password or messages because
+                        we never have access to them.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon">🚫</div>
+                    <h3 data-i18n="trust_logs_title">Zero Logs</h3>
+                    <p data-i18n="trust_logs_desc">Zero doesn't log your IP, metadata, or contact list. Your digital
+                        footprint is truly erased.</p>
+                </div>
             </div>
-            <div class="feature-grid">
-                <div class="feature-card glass">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="feature-svg">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#icon-grad-1)"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M12 8v4" stroke="url(#icon-grad-1)" stroke-width="2" stroke-linecap="round"
+        </div>
+    </section>
+
+    <!-- Invisible Engine (Rebranded Features) -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features_title">The Invisible Engine</h2>
+            <p class="section-subtitle" data-i18n="features_subtitle">For the curious: The deep-tech that makes absolute
+                privacy possible.</p>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-container">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" />
-                            <path d="M12 16h.01" stroke="url(#icon-grad-1)" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <defs>
-                                <linearGradient id="icon-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
                         </svg>
                     </div>
                     <h3 data-i18n="feature_dksap_title">DKSAP (ECC)</h3>
-                    <p data-i18n="feature_dksap_desc">Dual-Key Stealth Address Protocol. 수신자의 고정 주소를 노출하지 않고 일회용 stealth
-                        address를 생성하여 익명성을 완벽히 보호합니다.
-                    </p>
+                    <p data-i18n="feature_dksap_desc">Dual-Key Stealth Address Protocol. Hides the receiver's identity
+                        by generating a one-time address for every message.</p>
                 </div>
-                <div class="feature-card glass">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="feature-svg">
-                            <circle cx="11" cy="11" r="8" stroke="url(#icon-grad-2)" stroke-width="2" />
-                            <path d="M21 21l-4.35-4.35" stroke="url(#icon-grad-2)" stroke-width="2"
-                                stroke-linecap="round" />
-                            <circle cx="11" cy="11" r="3" fill="url(#icon-grad-2)" fill-opacity="0.3" />
-                            <defs>
-                                <linearGradient id="icon-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#4f46e5;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-container">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </div>
                     <h3 data-i18n="feature_omr_title">OMR (FHE)</h3>
