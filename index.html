@@ -234,6 +234,22 @@
         </div>
     </footer>
 
+    <!-- Waitlist Popup Modal -->
+    <div class="waitlist-overlay" id="waitlist-overlay">
+        <div class="waitlist-modal">
+            <button class="waitlist-close" id="waitlist-close">&times;</button>
+            <h2 data-i18n="waitlist_title">Currently in Development</h2>
+            <p data-i18n="waitlist_description">We'll notify you when Zero launches. Please leave your email or phone
+                number.</p>
+            <form class="waitlist-form" id="waitlist-form">
+                <input type="text" id="waitlist-input" class="waitlist-input"
+                    data-i18n-placeholder="waitlist_placeholder" placeholder="Email or Phone Number" required />
+                <button type="submit" class="btn-primary" data-i18n="waitlist_submit">Get Notified</button>
+            </form>
+            <div class="waitlist-message" id="waitlist-message"></div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 

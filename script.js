@@ -243,10 +243,16 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_features: "Invisible Engine",
             nav_architecture: "아키텍처",
             nav_roadmap: "로드맵",
-            nav_get_started: "시작하기",
+            nav_get_started: "이용하기",
             hero_title: "당신과 대화 상대방만 볼 수 있는 대화",
             hero_subtitle: "중앙 서버도, 감시자도 없습니다. 개발사인 저희조차 당신의 메시지를 볼 수 없습니다. Zero는 세계 최고 수준의 암호화 기술로 완벽한 익명성을 보장합니다.",
             hero_btn_whitepaper: "화이트페이퍼 읽기",
+            waitlist_title: "현재 개발 중입니다",
+            waitlist_description: "Zero 출시 시 알림을 보내드리겠습니다. 이메일 주소 또는 휴대폰 번호를 남겨주세요.",
+            waitlist_placeholder: "이메일 또는 휴대폰 번호",
+            waitlist_submit: "알림 받기",
+            waitlist_success: "감사합니다! 출시 시 연락드리겠습니다.",
+            waitlist_error: "올바른 이메일 또는 휴대폰 번호를 입력해주세요.",
             trust_title: "깨지지 않는 신뢰",
             trust_subtitle: "Zero는 수학적으로 프라이버시가 보호되도록 설계되었습니다. 사람의 개입 가능성을 원천 차단하여 당신의 데이터는 오직 당신만의 것으로 남습니다.",
             trust_server_title: "영지식 증명 (Zero Knowledge)",
@@ -282,10 +288,16 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_features: "Invisible Engine",
             nav_architecture: "Architecture",
             nav_roadmap: "Roadmap",
-            nav_get_started: "Get Started",
+            nav_get_started: "Use Now",
             hero_title: "Conversations that only you see",
             hero_subtitle: "No central servers, no prying eyes. Not even we can see your messages. Zero ensures absolute anonymity using world-class cryptographic technology.",
             hero_btn_whitepaper: "Read Whitepaper",
+            waitlist_title: "Currently in Development",
+            waitlist_description: "We'll notify you when Zero launches. Please leave your email or phone number.",
+            waitlist_placeholder: "Email or Phone Number",
+            waitlist_submit: "Get Notified",
+            waitlist_success: "Thank you! We'll contact you at launch.",
+            waitlist_error: "Please enter a valid email or phone number.",
             trust_title: "Unbreakable Trust",
             trust_subtitle: "Zero is designed to be mathematically private. We eliminated the human factor so your data stays yours, always.",
             trust_server_title: "Zero Knowledge Proof",
@@ -321,10 +333,16 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_features: "Invisible Engine",
             nav_architecture: "アーキテクチャ",
             nav_roadmap: "ロードマップ",
-            nav_get_started: "スタートガイド",
+            nav_get_started: "利用する",
             hero_title: "あなたと相手だけが見ることができる会話",
             hero_subtitle: "中央サーバーも、監視者もありません。開発元である私たちでさえ、あなたのメッセージを見ることはできません。Zeroは世界最高水準の暗号化技術で完全な匿名性を保証します。",
             hero_btn_whitepaper: "ホワイトペーパーを読む",
+            waitlist_title: "現在開発中です",
+            waitlist_description: "Zeroのローンチ時に通知いたします。メールアドレスまたは電話番号をご入力ください。",
+            waitlist_placeholder: "メールアドレスまたは電話番号",
+            waitlist_submit: "通知を受け取る",
+            waitlist_success: "ありがとうございます！ローンチ時にご連絡いたします。",
+            waitlist_error: "有効なメールアドレスまたは電話番号を入力してください。",
             trust_title: "破られない信頼",
             trust_subtitle: "Zeroは数学的にプライバシーが保護されるように設計されています。人間の介入を排除し、あなたのデータはあなただけのものになります。",
             trust_server_title: "ゼロ知識証明",
@@ -360,10 +378,16 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_features: "隐形引擎",
             nav_architecture: "架构设计",
             nav_roadmap: "路线图",
-            nav_get_started: "立即开始",
+            nav_get_started: "立即使用",
             hero_title: "只有你和对方能看到的对话",
             hero_subtitle: "没有中央服务器，没有监视者。甚至连我们（开发团队）也无法查看你的信息。Zero 利用世界顶级加密技术确保绝对的数据匿名。",
             hero_btn_whitepaper: "阅读白皮书",
+            waitlist_title: "正在开发中",
+            waitlist_description: "Zero 上线时我们将通知您。请留下您的电子邮件或电话号码。",
+            waitlist_placeholder: "电子邮件或电话号码",
+            waitlist_submit: "接收通知",
+            waitlist_success: "谢谢！我们将在上线时联系您。",
+            waitlist_error: "请输入有效的电子邮件或电话号码。",
             trust_title: "不可逾越的信任",
             trust_subtitle: "Zero 在数学设计上确保隐私。我们消除了人为干预，让你的数据永远只属于你。",
             trust_server_title: "零知识证明",
@@ -399,10 +423,16 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_features: "Motor Invisible",
             nav_architecture: "Arquitectura",
             nav_roadmap: "Hoja de Ruta",
-            nav_get_started: "Comenzar",
+            nav_get_started: "Usar Ahora",
             hero_title: "Conversaciones que solo tú ves",
             hero_subtitle: "Sin servidores centrales, sin miradas indiscretas. Ni siquiera nosotros podemos ver tus mensajes. Zero garantiza el anonimato absoluto mediante tecnología criptográfica de clase mundial.",
             hero_btn_whitepaper: "Leer Whitepaper",
+            waitlist_title: "Actualmente en Desarrollo",
+            waitlist_description: "Te notificaremos cuando Zero se lance. Por favor, deja tu correo electrónico o número de teléfono.",
+            waitlist_placeholder: "Correo Electrónico o Teléfono",
+            waitlist_submit: "Recibir Notificación",
+            waitlist_success: "¡Gracias! Te contactaremos en el lanzamiento.",
+            waitlist_error: "Por favor, ingresa un correo electrónico o teléfono válido.",
             trust_title: "Confianza Inquebrantable",
             trust_subtitle: "Zero está diseñado para ser matemáticamente privado. Eliminamos el factor humano para que tus datos sigan siendo tuyos, siempre.",
             trust_server_title: "Prueba de Conocimiento Cero",
@@ -501,4 +531,131 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Waitlist Popup Logic
+    const waitlistOverlay = document.getElementById('waitlist-overlay');
+    const waitlistClose = document.getElementById('waitlist-close');
+    const waitlistForm = document.getElementById('waitlist-form');
+    const waitlistInput = document.getElementById('waitlist-input');
+    const waitlistMessage = document.getElementById('waitlist-message');
+
+    // Open popup when "이용하기" buttons are clicked
+    const getStartedButtons = document.querySelectorAll('[data-i18n="nav_get_started"]');
+    getStartedButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            waitlistOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        });
+    });
+
+    // Close popup
+    function closeWaitlist() {
+        waitlistOverlay.classList.remove('show');
+        document.body.style.overflow = ''; // Restore scroll
+        waitlistMessage.classList.remove('show', 'success', 'error');
+        waitlistForm.reset();
+    }
+
+    waitlistClose.addEventListener('click', closeWaitlist);
+
+    // Close on overlay click (not modal)
+    waitlistOverlay.addEventListener('click', (e) => {
+        if (e.target === waitlistOverlay) {
+            closeWaitlist();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && waitlistOverlay.classList.contains('show')) {
+            closeWaitlist();
+        }
+    });
+
+    // Form validation and submission
+    waitlistForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const contact = waitlistInput.value.trim();
+        const currentLang = localStorage.getItem('zero_lang') || 'en';
+
+        // Simple validation (email or phone)
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[\d\s\-\+\(\)]{8,}$/;
+
+        if (!emailRegex.test(contact) && !phoneRegex.test(contact)) {
+            showMessage('error', translations[currentLang].waitlist_error);
+            return;
+        }
+        // Send to backend API
+        const submitBtn = waitlistForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+
+        try {
+            submitBtn.disabled = true;
+            submitBtn.textContent = '...';
+
+            // Mock mode for local testing
+            const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+            if (isLocal) {
+                console.log('Local Mode: Simulating API submission...', { contact, language: currentLang });
+                await new Promise(resolve => setTimeout(resolve, 800)); // Simulate delay
+                showMessage('success', translations[currentLang].waitlist_success);
+                waitlistForm.reset();
+                setTimeout(() => closeWaitlist(), 2500);
+                return;
+            }
+
+            const response = await fetch('/api/waitlist', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ contact, language: currentLang })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                showMessage('success', translations[currentLang].waitlist_success);
+                waitlistForm.reset();
+                setTimeout(() => {
+                    closeWaitlist();
+                }, 3000);
+            } else {
+                showMessage('error', result.error || translations[currentLang].waitlist_error);
+            }
+        } catch (error) {
+            console.error('Waitlist error:', error);
+            showMessage('error', translations[currentLang].waitlist_error);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    });
+
+    function showMessage(type, text) {
+        waitlistMessage.textContent = text;
+        waitlistMessage.className = 'waitlist-message show ' + type;
+    }
+
+    // Update placeholder translation when language changes
+    function updatePlaceholders(lang) {
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang] && translations[lang][key]) {
+                el.placeholder = translations[lang][key];
+            }
+        });
+    }
+
+    // Override setLanguage to include placeholder updates
+    const originalSetLanguage = setLanguage;
+    setLanguage = function (lang) {
+        originalSetLanguage(lang);
+        updatePlaceholders(lang);
+    };
+
+    // Initialize placeholders
+    const initialLang = localStorage.getItem('zero_lang') || 'en';
+    updatePlaceholders(initialLang);
 });
