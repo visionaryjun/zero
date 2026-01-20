@@ -1,0 +1,9 @@
+{
+  "name": "zero-messenger",
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/whitepaper", "destination": "/whitepaper.html" }
+  ]
+}
