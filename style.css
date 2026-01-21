@@ -238,12 +238,30 @@ h4,
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 100px;
+    /* Space for fixed navbar */
+    padding-bottom: 50px;
     position: relative;
     overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1.2;
+}
+
+.hero-visual {
+    flex: 0.8;
 }
 
 .hero::before {
@@ -767,8 +785,39 @@ h4,
 }
 
 @media (max-width: 768px) {
+    .hero {
+        padding-top: 120px;
+        padding-bottom: 40px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-content p {
+        margin: 0 auto 2.5rem;
+    }
+
+    .hero-btns {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-visual {
+        min-height: 350px;
     }
 
     .grid {
