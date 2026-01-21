@@ -154,19 +154,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function init() {
             const dpr = window.devicePixelRatio || 1;
-            const parent = canvas.parentElement;
-            if (!parent) return;
-
-            canvas.width = parent.offsetWidth * dpr;
-            canvas.height = parent.offsetHeight * dpr;
+            canvas.width = window.innerWidth * dpr;
+            canvas.height = window.innerHeight * dpr;
 
             // Reset transform before re-scaling to avoid cumulative scaling
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
             particles = [];
             activeRollups = [];
-            for (let i = 0; i < execCount; i++) particles.push(new Particle('exec'));
-            for (let i = 0; i < daCount; i++) particles.push(new Particle('da'));
+
+            // Adjust count for whole screen
+            const globalExecCount = 60;
+            const globalDaCount = 40;
+
+            for (let i = 0; i < globalExecCount; i++) particles.push(new Particle('exec'));
+            for (let i = 0; i < globalDaCount; i++) particles.push(new Particle('da'));
         }
 
         function animate() {
@@ -222,10 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('resize', init);
 
-        canvas.addEventListener('mousemove', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            mouse.x = e.clientX - rect.left;
-            mouse.y = e.clientY - rect.top;
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
         });
 
         canvas.addEventListener('mouseleave', () => {
