@@ -160,26 +160,36 @@
             const password = document.getElementById('password').value;
 
             // Check if we are in local development
-            const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+            const isLocal = ['localhost', '127.0.0.1', '0.0.0.0', '::1'].includes(location.hostname) || location.protocol === 'file:';
 
             try {
                 const res = await fetch(`/api/admin?password=${password}`);
                 if (res.ok) {
                     submissions = await res.json();
                     showDashboard();
+                } else if (res.status === 401) {
+                    alert('Invalid password. Please check your ADMIN_PASSWORD environment variable.');
+                } else if (res.status === 500) {
+                    const errorData = await res.json();
+                    alert(`Database Error: ${errorData.details || 'Check your Vercel Postgres connection.'}`);
+                    if (isLocal) {
+                        if (confirm('서버 오류가 발생했습니다. 로컬 테스트를 위해 샘플 데이터를 로드하시겠습니까?')) {
+                            loadMockData();
+                        }
+                    }
                 } else if (isLocal) {
                     if (confirm('서버에 연결할 수 없습니다. 로컬 테스트를 위해 샘플 데이터를 로드하시겠습니까?')) {
                         loadMockData();
                     }
                 } else {
-                    alert('Invalid password or database connection error.');
+                    alert('Server error occurred.');
                 }
             } catch (error) {
                 if (isLocal) {
                     loadMockData();
                 } else {
                     console.error('Fetch error:', error);
-                    alert('Server connection failed.');
+                    alert('Server connection failed. Please ensure the site is deployed to Vercel.');
                 }
             }
         }
