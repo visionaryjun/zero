@@ -158,38 +158,43 @@
 
         async function loadData() {
             const password = document.getElementById('password').value;
-
-            // Check if we are in local development
-            const isLocal = ['localhost', '127.0.0.1', '0.0.0.0', '::1'].includes(location.hostname) || location.protocol === 'file:';
+            const host = location.hostname;
+            const isLocal = ['localhost', '127.0.0.1', '0.0.0.0', '::1'].includes(host) || location.protocol === 'file:';
 
             try {
                 const res = await fetch(`/api/admin?password=${password}`);
+
+                // Try to parse JSON safely if possible
+                let data = null;
+                const contentType = res.headers.get("content-type");
+                if (contentType && contentType.includes("application/json")) {
+                    data = await res.json();
+                }
+
                 if (res.ok) {
-                    submissions = await res.json();
+                    submissions = data || [];
                     showDashboard();
                 } else if (res.status === 401) {
-                    alert('Invalid password. Please check your ADMIN_PASSWORD environment variable.');
+                    alert('Invalid password. Please check your ADMIN_PASSWORD environment variable in Vercel.');
                 } else if (res.status === 500) {
-                    const errorData = await res.json();
-                    alert(`Database Error: ${errorData.details || 'Check your Vercel Postgres connection.'}`);
-                    if (isLocal) {
-                        if (confirm('서버 오류가 발생했습니다. 로컬 테스트를 위해 샘플 데이터를 로드하시겠습니까?')) {
-                            loadMockData();
-                        }
-                    }
-                } else if (isLocal) {
-                    if (confirm('서버에 연결할 수 없습니다. 로컬 테스트를 위해 샘플 데이터를 로드하시겠습니까?')) {
+                    alert(`Database Error (500): ${data?.details || 'Internal server error. Check Vercel Postgres connection.'}`);
+                    if (isLocal && confirm('로컬 테스트를 위해 샘플 데이터를 로드하시겠습니까?')) {
                         loadMockData();
                     }
                 } else {
-                    alert('Server error occurred.');
+                    alert(`Server Error (${res.status}): ${data?.error || 'Unknown error occured.'}`);
+                    if (isLocal && confirm('로컬 테스트를 위해 샘플 데이터를 로드하시겠습니까?')) {
+                        loadMockData();
+                    }
                 }
             } catch (error) {
+                console.error('Fetch error:', error);
+                const msg = `Server connection failed.\nHost: ${host}\nError: ${error.message}\n\n${isLocal ? '로컬 테스트를 위해 샘플 데이터를 로드하시겠습니까?' : 'Please ensure the site is deployed to Vercel.'}`;
+
                 if (isLocal) {
-                    loadMockData();
+                    if (confirm(msg)) loadMockData();
                 } else {
-                    console.error('Fetch error:', error);
-                    alert('Server connection failed. Please ensure the site is deployed to Vercel.');
+                    alert(msg);
                 }
             }
         }
