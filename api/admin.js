@@ -7,6 +7,18 @@ export default async function handler(request, response) {
         return response.status(401).json({ error: 'Unauthorized' });
     }
 
+    // Check configuration
+    if (!process.env.POSTGRES_URL) {
+        console.error('Missing POSTGRES_URL environment variable');
+        return response.status(500).json({
+            error: 'Database configuration missing',
+            details: 'Please connect Vercel Postgres/Neon storage in the Vercel Dashboard.'
+        });
+    }
+
+    console.log('API: Waitlist request received. Using database:', process.env.POSTGRES_URL.split('@')[1] || 'URL masked');
+    console.log('Admin API: Fetching submissions. Auth success.');
+
     try {
         // Check if table exists first by querying information_schema
         const tableCheck = await sql`

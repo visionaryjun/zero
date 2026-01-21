@@ -14,11 +14,15 @@ export default async function handler(request, response) {
 
     // Check configuration
     if (!process.env.POSTGRES_URL) {
-        console.error('Missing POSTGRES_URL environment variable');
+        console.error('Waitlist API: Missing POSTGRES_URL environment variable');
         return response.status(500).json({
-            error: 'Database configuration missing. Please connect Vercel Postgres/Neon storage.'
+            error: 'Database configuration missing',
+            details: 'Please connect Vercel Postgres/Neon storage in the Vercel Dashboard.'
         });
     }
+
+    // Diagnostic log (masked)
+    console.log('Waitlist API: request received. Using database:', process.env.POSTGRES_URL ? process.env.POSTGRES_URL.split('@')[1] : 'none');
 
     // Basic validation (email or phone)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

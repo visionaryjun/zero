@@ -623,9 +623,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             let result = {};
+            let rawBody = '';
             const contentType = response.headers.get("content-type");
             if (contentType && contentType.includes("application/json")) {
                 result = await response.json();
+            } else {
+                rawBody = await response.text();
             }
 
             if (response.ok) {
@@ -635,11 +638,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     closeWaitlist();
                 }, 3000);
             } else {
-                showMessage('error', result.error || translations[currentLang].waitlist_server_error);
+                const errorMsg = result.error || (rawBody ? `Server Error: ${rawBody.substring(0, 100)}...` : translations[currentLang].waitlist_server_error);
+                showMessage('error', errorMsg);
             }
         } catch (error) {
             console.error('Waitlist error:', error);
-            showMessage('error', translations[currentLang].waitlist_server_error);
+            showMessage('error', translations[currentLang].waitlist_server_error + ' (' + error.message + ')');
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = originalBtnText;
