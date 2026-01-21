@@ -525,13 +525,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-links a, .hero-btns a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            if (href.startsWith('#')) {
+            if (href.startsWith('#') && href.length > 1) {
                 e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                try {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                } catch (err) {
+                    console.error('Scroll error:', err);
                 }
             }
         });
@@ -618,7 +622,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ contact, language: currentLang })
             });
 
-            const result = await response.json();
+            let result = {};
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+                result = await response.json();
+            }
 
             if (response.ok) {
                 showMessage('success', translations[currentLang].waitlist_success);

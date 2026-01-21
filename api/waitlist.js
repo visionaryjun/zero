@@ -6,9 +6,18 @@ export default async function handler(request, response) {
     }
 
     const { contact } = request.body;
+    const currentLang = request.body.language || 'en';
 
     if (!contact) {
         return response.status(400).json({ error: 'Contact information is required' });
+    }
+
+    // Check configuration
+    if (!process.env.POSTGRES_URL) {
+        console.error('Missing POSTGRES_URL environment variable');
+        return response.status(500).json({
+            error: 'Database configuration missing. Please connect Vercel Postgres/Neon storage.'
+        });
     }
 
     // Basic validation (email or phone)
