@@ -54,23 +54,16 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <canvas id="hero-canvas"></canvas>
-            </div>
-        </div>
-    </header>
-
-    <!-- App Preview Section (New) -->
-    <section class="app-preview">
-        <div class="container">
-            <div class="mockup-wrapper" data-aos="fade-up">
-                <div class="mockup-frame">
-                    <img id="messenger-mockup" src="assets/messenger_mockup.png"
-                        alt="Zero Messenger Secure Chat Interface" class="mockup-img">
+                <div class="mockup-frame hero-mockup" data-aos="fade-up">
+                    <img src="assets/messenger_mockup.png" alt="Zero Messenger Secure Chat Interface"
+                        class="mockup-img">
                     <div class="mockup-glow"></div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
+
+
 
     <!-- Trust Section (New) -->
     <section class="trust-section">
@@ -261,6 +254,11 @@
             </form>
             <div class="waitlist-message" id="waitlist-message"></div>
         </div>
+    </div>
+
+    <!-- Dynamic Background Animation (Moved to Bottom) -->
+    <div class="bottom-animation">
+        <canvas id="hero-canvas"></canvas>
     </div>
 
     <script src="script.js"></script>
