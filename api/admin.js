@@ -1,7 +1,11 @@
 import { sql } from '@vercel/postgres';
 
 export default async function handler(request, response) {
-    const { password } = request.query;
+    if (request.method !== 'POST') {
+        return response.status(405).json({ error: 'Method not allowed' });
+    }
+
+    const { password } = request.body;
 
     if (!password || password !== process.env.ADMIN_PASSWORD) {
         return response.status(401).json({ error: 'Unauthorized' });
@@ -9,14 +13,13 @@ export default async function handler(request, response) {
 
     // Check configuration
     if (!process.env.POSTGRES_URL) {
-        console.error('Missing POSTGRES_URL environment variable');
+        console.error('Admin API: Missing POSTGRES_URL variable');
         return response.status(500).json({
             error: 'Database configuration missing',
             details: 'Please connect Vercel Postgres/Neon storage in the Vercel Dashboard.'
         });
     }
 
-    console.log('API: Waitlist request received. Using database:', process.env.POSTGRES_URL.split('@')[1] || 'URL masked');
     console.log('Admin API: Fetching submissions. Auth success.');
 
     try {

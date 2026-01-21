@@ -162,7 +162,11 @@
             const isLocal = ['localhost', '127.0.0.1', '0.0.0.0', '::1'].includes(host) || location.protocol === 'file:';
 
             try {
-                const res = await fetch(`/api/admin?password=${password}`);
+                const res = await fetch('/api/admin', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
+                });
 
                 // Try to parse JSON safely if possible
                 let data = null;
