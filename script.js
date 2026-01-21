@@ -253,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
             waitlist_submit: "알림 받기",
             waitlist_success: "감사합니다! 출시 시 연락드리겠습니다.",
             waitlist_error: "올바른 이메일 또는 휴대폰 번호를 입력해주세요.",
+            waitlist_server_error: "서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
             trust_title: "깨지지 않는 신뢰",
             trust_subtitle: "Zero는 수학적으로 프라이버시가 보호되도록 설계되었습니다. 사람의 개입 가능성을 원천 차단하여 당신의 데이터는 오직 당신만의 것으로 남습니다.",
             trust_server_title: "영지식 증명 (Zero Knowledge)",
@@ -298,6 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
             waitlist_submit: "Get Notified",
             waitlist_success: "Thank you! We'll contact you at launch.",
             waitlist_error: "Please enter a valid email or phone number.",
+            waitlist_server_error: "A server error occurred. Please try again later.",
             trust_title: "Unbreakable Trust",
             trust_subtitle: "Zero is designed to be mathematically private. We eliminated the human factor so your data stays yours, always.",
             trust_server_title: "Zero Knowledge Proof",
@@ -343,6 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
             waitlist_submit: "通知を受け取る",
             waitlist_success: "ありがとうございます！ローンチ時にご連絡いたします。",
             waitlist_error: "有効なメールアドレスまたは電話番号を入力してください。",
+            waitlist_server_error: "サーバーエラーが発生しました。後でもう一度お試しください。",
             trust_title: "破られない信頼",
             trust_subtitle: "Zeroは数学的にプライバシーが保護されるように設計されています。人間の介入を排除し、あなたのデータはあなただけのものになります。",
             trust_server_title: "ゼロ知識証明",
@@ -388,6 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
             waitlist_submit: "接收通知",
             waitlist_success: "谢谢！我们将在上线时联系您。",
             waitlist_error: "请输入有效的电子邮件或电话号码。",
+            waitlist_server_error: "服务器错误。请稍后再试。",
             trust_title: "不可逾越的信任",
             trust_subtitle: "Zero 在数学设计上确保隐私。我们消除了人为干预，让你的数据永远只属于你。",
             trust_server_title: "零知识证明",
@@ -433,6 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
             waitlist_submit: "Recibir Notificación",
             waitlist_success: "¡Gracias! Te contactaremos en el lanzamiento.",
             waitlist_error: "Por favor, ingresa un correo electrónico o teléfono válido.",
+            waitlist_server_error: "Ocurrió un error en el servidor. Inténtalo de nuevo más tarde.",
             trust_title: "Confianza Inquebrantable",
             trust_subtitle: "Zero está diseñado para ser matemáticamente privado. Eliminamos el factor humano para que tus datos sigan siendo tuyos, siempre.",
             trust_server_title: "Prueba de Conocimiento Cero",
@@ -597,7 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.textContent = '...';
 
             // Mock mode for local testing
-            const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+            const isLocal = ['localhost', '127.0.0.1', '0.0.0.0', '::1'].includes(location.hostname) || location.protocol === 'file:';
             if (isLocal) {
                 console.log('Local Mode: Simulating API submission...', { contact, language: currentLang });
                 await new Promise(resolve => setTimeout(resolve, 800)); // Simulate delay
@@ -622,11 +627,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     closeWaitlist();
                 }, 3000);
             } else {
-                showMessage('error', result.error || translations[currentLang].waitlist_error);
+                showMessage('error', result.error || translations[currentLang].waitlist_server_error);
             }
         } catch (error) {
             console.error('Waitlist error:', error);
-            showMessage('error', translations[currentLang].waitlist_error);
+            showMessage('error', translations[currentLang].waitlist_server_error);
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = originalBtnText;
